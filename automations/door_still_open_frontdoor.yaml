@@ -1,0 +1,16 @@
+- id: frontdoor_still_open
+  alias: Front door still open
+  trigger:
+  - entity_id: binary_sensor.doorsensor_sensor
+    from: 'off'
+    to: 'on'
+    platform: state
+    for:
+      minutes: 1
+  action:
+  - data:
+      message: Mick... Heb je de voordeur wel dicht gedaan?
+    service: notify.ios_micks_iphone
+  - data:
+      message: Cris... Heb je de voordeur wel dicht gedaan?
+    service: notify.ios_cristians_iphone 

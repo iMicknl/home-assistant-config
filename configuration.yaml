@@ -1,0 +1,139 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude 
+  longitude: !secret home_longitude
+  elevation: -1
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+
+  customize: !include customize.yaml
+  customize_domain: !include customize_domain.yaml
+
+# Enables configuration UI
+config:
+
+# Enable ZWave
+zwave:
+  usb_path: /dev/ttyUSB-ZStick-5G
+  network_key: !secret zwave_network_key
+  debug: false
+
+# Enable HTTP interface
+# SSL Reverse Proxy using NGINX
+http:
+  api_password: !secret http_password
+  base_url: !secret http_url
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+  use_x_forwarded_for: true
+
+# Checks for available updates
+updater:
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Enable recorder
+recorder:
+  db_url: !secret db_location
+  
+# Enable iOS app & notification support
+ios: !include ios.yaml
+
+# Text to speech
+tts:
+  - platform: google
+
+# Weather
+weather:
+  - platform: buienradar
+
+# Includes
+sensor: !include_dir_merge_list sensors
+alarm_control_panel: !include alarm.yaml
+group: !include groups.yaml
+
+automation: !include automations.yaml
+automation old: !include_dir_merge_list automations
+
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Camera
+camera:
+  - platform: foscam
+    ip: !secret foscam_host
+    username: !secret foscam_user
+    password: !secret foscam_password
+    name: Entrance 
+
+# Media Player
+media_player: !include mediaplayer.yaml
+
+# Plant
+plant: !include plant.yaml
+  
+# Asus WRT
+device_tracker:
+  - platform: asuswrt
+    host: !secret router_host
+    username: !secret router_user
+    password: !secret router_password
+    interval_seconds: 10
+
+# Apple TV
+apple_tv:
+  - host: !secret appletv_host
+    login_id: !secret appletv_id
+    credentials: !secret appletv_credentials
+    name: AppleTV
+
+# Xiaomi Vacuum
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret vacuum_host
+    token: !secret vacuum_token
+    name: MC_Vacuum
+
+# Enable front-end
+frontend:
+  themes:
+    gray:
+      primary-color: "#1D1D1D"
+    blue:
+      primary-color: "#2A76CD"
+
+# Enable Alexa
+alexa:
+  smart_home:
+    filter:
+      exclude_domains:
+        - device_tracker
+      exclude_entities:
+        - light.discoagroup
+        - light.discoagroupeven
+        - light.discoagroupodd
+      
+# Enable Apple HomeKit
+homekit:
+  auto_start: False # Start through automation for ZWave device discovery
+  filter:
+    exclude_domains:
+      - device_tracker
+    exclude_entities:
+      - light.discoagroup
+      - light.discoagroupeven
+      - light.discoagroupodd

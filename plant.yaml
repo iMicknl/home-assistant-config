@@ -1,0 +1,26 @@
+  Goudpalm (Chrysalidocarpus Lutescens):
+    sensors:
+      moisture: sensor.flower_1_moisture
+      battery: sensor.flower_1_battery
+      temperature: sensor.flower_1_temperature
+      conductivity: sensor.flower_1_conductivity
+      brightness: sensor.flower_1_light_intensity
+    min_moisture: 20
+
+  Aronskelk (Spathipylium):
+    sensors:
+      moisture: sensor.flower_2_moisture
+      battery: sensor.flower_2_battery 
+      temperature: sensor.flower_2_temperature
+      conductivity: sensor.flower_2_conductivity
+      brightness: sensor.flower_2_light_intensity 
+    min_moisture: 20
+
+  Calathea:
+    sensors:
+      moisture: sensor.flower_3_moisture
+      battery: sensor.flower_3_battery
+      temperature: sensor.flower_3_temperature
+      conductivity: sensor.flower_3_conductivity
+      brightness: sensor.flower_3_light_intensity
+    min_moisture: 20

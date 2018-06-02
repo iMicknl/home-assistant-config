@@ -1,0 +1,22 @@
+- id: mick_leaves_home
+  alias: Mick leaves home
+  trigger:
+  - entity_id: device_tracker.iphone_mick
+    from: home
+    platform: state
+    to: not_home  
+  action:
+  - data:
+      message: You left home, but some lights are still on. Do you want me to turn them off?
+      data:
+        push:
+          badge: 0
+          category: 'lights'
+    service: notify.ios_micks_iphone          
+  - alias: Turn Micks lights off automatically
+    service: homeassistant.turn_off
+    entity_id: group.lampen_mick
+  condition:
+    - condition: state
+      entity_id: 'group.all_lights'
+      state: 'on'

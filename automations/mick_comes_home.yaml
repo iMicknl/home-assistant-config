@@ -1,0 +1,19 @@
+- id: mick_comes_home
+  alias: Mick comes home
+  trigger:
+  - entity_id: device_tracker.iphone_mick
+    from: not_home
+    platform: state
+    to: home
+  action:
+  - data:
+      message: Welcome home! I will turn on the lights for you.
+    service: notify.ios_micks_iphone
+  - alias: Turn hall lights on
+    entity_id: group.lampen_gang
+    service: homeassistant.turn_on
+  - delay: 00:02:00
+  - alias: Turn hall lights off
+    service: homeassistant.turn_off
+    entity_id: group.lampen_gang
+  condition: []

@@ -1,0 +1,11 @@
+  push:
+    categories:
+      - name: Lights
+        identifier: 'lights'
+        actions:
+          - identifier: 'LIGHTS_TURN_OFF'
+            title: 'Turn lights off'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: no
+            behavior: 'default'

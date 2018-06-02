@@ -1,0 +1,67 @@
+# Change lights to movie mode & open Netflix on TV
+- name: Netflix
+  entities:
+    light.bank:
+      state: on
+      brightness: 40
+      rgb_color: [216, 75, 0]
+    light.bureaulamp_cris:
+      state: on
+      brightness: 20
+      rgb_color: [216, 75, 0]
+    light.vloerlamp:
+      state: on
+      brightness: 40
+      rgb_color: [216, 75, 0]
+    group.lampen_keuken:
+      state: off
+    light.tv:
+      state: off
+    script.netflix:
+      state: on
+
+# Change lights to romantic movie mode & open Netflix on TV
+- name: Netflix & Chill
+  entities:
+    light.bank:
+      state: on
+      brightness: 30
+      rgb_color: [216, 75, 0]
+    light.bureaulamp_cris:
+      state: on
+      brightness: 20
+      rgb_color: [216, 75, 0]
+    light.vloerlamp:
+      state: on
+      brightness: 30
+      rgb_color: [216, 75, 0]
+    group.lampen_keuken:
+      state: off
+    light.tv:
+      state: off
+    script.netflix:
+      state: on
+
+# Change lights to pink
+- name: Sexy Time (Mick)
+  entities:
+    light.bureaulamp_mick:
+      state: on
+      color_temp: 454
+      brightness: 10
+    light.hanglamp_mick:
+      state: on
+      rgb_color: [204, 30, 62]
+      brightness: 10
+
+# Change lights to pink
+- name: Sexy Time (Cris)
+  entities:
+    light.hanglamp_cristian:
+      state: on
+      rgb_color: [238, 66, 244]
+      brightness: 50
+    light.vloerlamp_cris: 
+      state: on
+      rgb_color: [238, 66, 244]
+      brightness: 50

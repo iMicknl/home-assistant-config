@@ -1,0 +1,185 @@
+## Views
+default_view:
+  view: yes
+  name: Overzicht
+  entities:
+    - group.all_devices
+    - media_player.woonkamer_multimedia
+    - camera.entrance
+    - sensor.power_consumption
+    - sensor.power_consumption_low
+    - sensor.power_consumption_normal
+    - group.meter_readings
+    - group.alle_lampen
+    - group.all_plants
+    - device_tracker.iphone_mick
+    - device_tracker.iphone_cristian
+    - sensor.cristian
+    - sensor.mick
+    - group.packages
+    - group.weather
+    
+hallway:
+  name: Gang
+  view: yes
+  entities: 
+    - binary_sensor.multisensor_sensor
+    - sensor.multisensor_temperature
+    - sensor.multisensor_ultraviolet
+    - sensor.multisensor_relative_humidity
+    - sensor.multisensor_luminance
+    - group.lampen_gang
+    - camera.entrance
+    - binary_sensor.doorsensor_sensor
+    - alarm_control_panel.alarm
+
+living_room:
+  name: Woonkamer
+  view: yes
+  entities:
+    - group.all_vacuum_cleaners
+    - media_player.woonkamer_multimedia
+    - group.lampen_woonkamer
+    - group.lampen_keuken
+    - sensor.flower_1_temperature
+    - sensor.flower_2_temperature
+    - sensor.flower_3_temperature
+    - group.all_plants
+    - scene.netflix
+    - scene.netflix__chill
+    - sensor.multisensor2_temperature
+    - sensor.multisensor2_luminance
+    - binary_sensor.multisensor2_sensor
+
+mick:
+  name: Mick
+  view: yes
+  entities:
+    - device_tracker.iphone_mick
+    - group.lampen_mick
+    - scene.sexy_time_mick
+
+cristian:
+  name: Cristian
+  view: yes
+  entities:
+    - device_tracker.iphone_cristian
+    - group.lampen_cris
+    - scene.sexy_time_cris
+
+automation:
+  name: Automation
+  view: yes
+  icon: mdi:robot
+  entities:
+    - group.all_automations
+    - group.all_scripts
+
+sensors:
+  name: Sensors
+  view: yes
+  icon: mdi:chart-line
+  entities:
+    - group.zwave
+    - group.all_devices
+    - group.all_lights
+    - group.all_plants
+    - group.all_remotes
+    - group.all_switches
+    - group.all_vacuum_cleaners
+    - group.speedtest
+    - group.cert_expiry
+
+## Custom Groups
+alle_lampen:
+  name: Lampen
+  view: no
+  entities: 
+    - group.lampen_woonkamer
+    - group.lampen_gang
+    - group.lampen_keuken
+
+lampen_woonkamer:
+  name: Lampen woonkamer
+  view: no
+  entities: 
+    - light.bank
+    - light.bureaulamp_cris
+    - light.tv
+    - light.vloerlamp
+
+lampen_mick:
+  name: Lampen Mick
+  view: no
+  entities: 
+    - light.hanglamp_mick
+    - light.bureaulamp_mick
+
+lampen_cris:
+  name: Lampen Cris
+  view: no
+  entities: 
+    - light.hanglamp_cristian
+    - light.bureaulamp_cris
+    - light.vloerlamp_cris
+
+lampen_keuken:
+  name: Lampen keuken
+  view: no
+  entities: 
+    - light.aanrecht
+    - light.trolley
+    - light.eettafel
+    - light.vitrine
+
+lampen_gang:
+  name: Lampen gang
+  view: no
+  entities: 
+    - light.spiegel
+    - light.deur
+    - light.gang
+
+meter_readings:
+  name: Meterstanden
+  entities:
+    - sensor.power_consumption
+    - sensor.power_consumption_low
+    - sensor.power_consumption_normal
+    - sensor.power_tariff
+
+zwave:
+  name: Z-Wave
+  entities: 
+    - zwave.controller
+    - zwave.keypad
+    - zwave.multisensor
+    - zwave.multisensor2
+    - zwave.doorsensor
+
+speedtest:
+  name: Speedtest
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+
+packages:
+  name: Pakketjes
+  entities:
+    - sensor.mick
+    - sensor.cristian
+
+weather:
+  name: Weer
+  entities:
+    - sensor.br_symbol
+    - sensor.br_temperature
+    - sensor.br_wind_speed
+    - sensor.br_humidity
+    - sun.sun
+
+cert_expiry:
+  name: Cert Expiry
+  entities:
+    - sensor.homecontrolamsterdam

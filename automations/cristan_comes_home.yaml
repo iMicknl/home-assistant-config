@@ -1,0 +1,18 @@
+- id: cristian_comes_home
+  alias: Cristian comes home
+  trigger:
+  - entity_id: device_tracker.iphone_cristian
+    from: not_home
+    platform: state
+    to: home
+  action:
+  - data:
+      entity_id: media_player.woonkamer_sonos
+      volume_level: 0.6
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.woonkamer_sonos
+      media_content_id: https://homecontrol.amsterdam/local/goedemorgen-cristian.mp3
+      media_content_type: music
+    service: media_player.play_media
+

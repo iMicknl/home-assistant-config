@@ -1,0 +1,88 @@
+sun.sun:
+  hidden: true
+  homebridge_hidden: true
+device_tracker.iphone_cristian:
+  hidden: false
+device_tracker.iphone_mick:
+  hidden: false
+
+## Device Icons
+group.lampen_woonkamer:
+  icon: mdi:lightbulb-outline
+group.lampen_keuken:
+  icon: mdi:lightbulb-outline
+group.lampen_gang:
+  icon: mdi:lightbulb-outline
+sensor.power_consumption:
+  icon: mdi:power-plug
+sensor.power_tariff:
+  icon: mdi:currency-eur
+
+## Scene Icons
+scene.netflix:
+  icon: mdi:netflix
+scene.netflix__chill:
+  icon: mdi:netflix
+scene.sexy_time_mick:
+  icon: mdi:heart
+scene.sexy_time_cris:
+  icon: mdi:heart-broken
+
+group.lampen_mick:
+  homebridge_hidden: false
+
+## System Generated Groups
+group.all_lights:
+  hidden: false
+  friendly_name: 'Lampen'
+
+group.all_automations:
+  hidden: false
+  friendly_name: 'Automations'
+
+group.all_scripts:
+  hidden: false
+  friendly_name: 'Scripts'
+
+group.all_switches:
+  hidden: false
+  friendly_name: 'Switches'
+
+group.all_devices:
+  hidden: false
+  friendly_name: 'Aanwezigheid'
+
+group.all_plants:
+  hidden: false
+  friendly_name: 'Planten'
+
+group.all_vacuum_cleaners:
+  hidden: false
+  friendly_name: 'Stofzuigers'
+
+group.all_remotes:
+  hidden: false
+  friendly_name: 'Remotes'
+
+# Hide Hue Disco groups
+light.discoagroup:
+  hidden: true
+
+light.discoagroupeven:
+  hidden: true
+
+light.discoagroupodd:
+  hidden: true
+
+# Weather
+sensor.br_symbol:
+  friendly_name: Amsterdam
+
+sensor.br_temperature:
+  friendly_name: Temperature
+
+sensor.br_humidity:
+  friendly_name: Humidity
+
+sensor.br_wind_speed:
+  friendly_name: Wind speed

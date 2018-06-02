@@ -1,0 +1,8 @@
+sensor:
+ hidden: false
+ homebridge_hidden: true
+device_tracker:
+ hidden: true
+ homebridge_hidden: true
+group:
+ homebridge_hidden: true

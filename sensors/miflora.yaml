@@ -1,0 +1,35 @@
+- platform: miflora
+  mac: 'C4:7C:8D:65:C3:94'
+  name: Flower 1
+  force_update: false
+  median: 3
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery
+
+- platform: miflora
+  mac: 'C4:7C:8D:65:B8:DF'
+  name: Flower 2
+  force_update: false
+  median: 3
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery
+
+- platform: miflora
+  mac: 'C4:7C:8D:65:AB:E2'
+  name: Flower 3
+  force_update: false
+  median: 3
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery    

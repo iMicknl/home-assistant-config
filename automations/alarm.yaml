@@ -1,0 +1,23 @@
+- id: set_alarm_armed
+  alias: Set Alarm Armed
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.keypad_alarm_level
+    above: 254
+  action:
+  - service: switch.turn_on
+    entity_id: switch.keypad_switch
+  - service: alarm_control_panel.alarm_arm_away
+    entity_id: alarm_control_panel.home_alarm
+    
+- id: set_alarm_home
+  alias: Set Alarm Home
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.keypad_alarm_level
+    below: 1
+  action:
+  - service: switch.turn_on
+    entity_id: switch.keypad_switch
+  - service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.home_alarm

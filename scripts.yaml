@@ -1,0 +1,25 @@
+netflix:
+  alias: Turn on Netflix
+  sequence:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.appletv
+    - delay: 00:00:05
+    - service: remote.send_command
+      data:
+        entity_id: remote.appletv
+        command:
+          - menu
+        delay_secs: 2
+        num_repeats: 2
+    - delay: 00:00:05
+    - service: remote.send_command
+      data:
+        entity_id: remote.appletv
+        command:
+          - right
+          - right
+          - select
+        delay_secs: 1
+
+

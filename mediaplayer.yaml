@@ -1,0 +1,39 @@
+  - platform: webostv
+    host: !secret tv_host
+    name: WoonkamerTV
+
+  - platform: sonos
+    hosts: !secret sonos_host
+
+  - platform: universal
+    name: Woonkamer Multimedia
+    children:
+      - media_player.woonkamer
+      - media_player.appletv
+      - media_player.woonkamertv
+    commands:
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.appletv
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.woonkamertv
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.woonkamer
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.woonkamer
+      volume_mute:
+        service: media_player.volume_mute
+        data:
+          entity_id: media_player.woonkamer
+      volume_set:
+        service: media_player.volume_set
+        data_template:
+          entity_id: media_player.woonkamer
+          volume_level: '{{ volume_level }}'

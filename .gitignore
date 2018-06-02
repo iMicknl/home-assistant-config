@@ -1,0 +1,21 @@
+# HomeAssistant
+.HA_VERSION
+secrets.yaml
+tts
+
+ip_bans.yaml
+known_devices.yaml
+entity_registry.yaml
+
+*.uuid
+*.conf
+*.db
+*.db-journal
+*.log
+*.noload
+*.txt
+*.sqlite
+*.xml
+*.backup
+*.sh
+.*

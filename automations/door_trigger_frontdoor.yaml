@@ -1,0 +1,19 @@
+- id: door_trigger_frontdoor
+  alias: Door Trigger - Front door
+  trigger:
+  - entity_id: binary_sensor.doorsensor_sensor
+    from: 'off'
+    to: 'on'
+    platform: state
+  action:
+  - alias: Turn hall lights on
+    entity_id: group.lampen_gang
+    service: homeassistant.turn_on
+  - delay: 00:01:00
+  - alias: Turn hall lights off
+    service: homeassistant.turn_off
+    entity_id: group.lampen_gang
+  condition:
+    - condition: state
+      entity_id: 'light.deur'
+      state: 'off'
