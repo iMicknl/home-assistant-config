@@ -1,0 +1,15 @@
+- platform: alpha_vantage
+  api_key: !secret alpha_vantage_key
+  symbols:
+    - symbol: MSFT
+      name: Microsoft
+    - symbol: GOOGL
+      name: Google
+    - symbol: AMZN
+      name: Amazon
+    - symbol: AAPL
+      name: Apple
+  foreign_exchange:
+    - from: BTC
+      to: EUR
+      name: Bitcoin

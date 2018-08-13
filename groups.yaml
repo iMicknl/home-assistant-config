@@ -5,7 +5,7 @@ default_view:
   entities:
     - group.all_devices
     - media_player.woonkamer_multimedia
-    - camera.entrance
+    - camera.voordeur
     - sensor.power_consumption
     - sensor.power_consumption_low
     - sensor.power_consumption_normal
@@ -28,8 +28,8 @@ hallway:
     - sensor.multisensor_ultraviolet
     - sensor.multisensor_relative_humidity
     - sensor.multisensor_luminance
-    - group.lampen_gang
-    - camera.entrance
+    - light.lampen_gang
+    - camera.voordeur
     - binary_sensor.doorsensor_sensor
     - alarm_control_panel.alarm
 
@@ -39,7 +39,9 @@ living_room:
   entities:
     - group.all_vacuum_cleaners
     - media_player.woonkamer_multimedia
+    - light.lampen_woonkamer
     - group.lampen_woonkamer
+    - light.lampen_keuken
     - group.lampen_keuken
     - sensor.flower_1_temperature
     - sensor.flower_2_temperature
@@ -56,7 +58,9 @@ mick:
   view: yes
   entities:
     - device_tracker.iphone_mick
+    - light.lampen_mick
     - group.lampen_mick
+    - group.stocks
     - scene.sexy_time_mick
 
 cristian:
@@ -64,6 +68,7 @@ cristian:
   view: yes
   entities:
     - device_tracker.iphone_cristian
+    - light.lampen_cris
     - group.lampen_cris
     - scene.sexy_time_cris
 
@@ -95,9 +100,9 @@ alle_lampen:
   name: Lampen
   view: no
   entities: 
-    - group.lampen_woonkamer
-    - group.lampen_gang
-    - group.lampen_keuken
+    - light.lampen_woonkamer
+    - light.lampen_gang
+    - light.lampen_keuken
 
 lampen_woonkamer:
   name: Lampen woonkamer
@@ -139,7 +144,7 @@ lampen_gang:
     - light.spiegel
     - light.deur
     - light.gang
-
+    
 meter_readings:
   name: Meterstanden
   entities:
@@ -183,3 +188,13 @@ cert_expiry:
   name: Cert Expiry
   entities:
     - sensor.homecontrolamsterdam
+
+stocks:
+  name: Stocks
+  entities:
+    - sensor.microsoft
+    - sensor.amazon
+    - sensor.google
+    - sensor.apple
+    - sensor.bitcoin
+    - sensor.bitcoin_balance

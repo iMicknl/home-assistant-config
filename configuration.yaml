@@ -60,11 +60,13 @@ tts:
 # Weather
 weather:
   - platform: buienradar
-
+    forecast: True
+    
 # Includes
-sensor: !include_dir_merge_list sensors
-alarm_control_panel: !include alarm.yaml
+sensor: !include_dir_merge_list components/sensors
+alarm_control_panel: !include components/alarm.yaml
 group: !include groups.yaml
+light: !include components/lights.yaml
 
 automation: !include automations.yaml
 automation old: !include_dir_merge_list automations
@@ -78,13 +80,13 @@ camera:
     ip: !secret foscam_host
     username: !secret foscam_user
     password: !secret foscam_password
-    name: Entrance 
+    name: Voordeur 
 
 # Media Player
-media_player: !include mediaplayer.yaml
+media_player: !include components/mediaplayer.yaml
 
 # Plant
-plant: !include plant.yaml
+plant: !include components/plants.yaml
   
 # Asus WRT
 device_tracker:
@@ -96,10 +98,10 @@ device_tracker:
 
 # Apple TV
 apple_tv:
-  - host: !secret appletv_host
-    login_id: !secret appletv_id
-    credentials: !secret appletv_credentials
-    name: AppleTV
+#   - host: !secret appletv_host
+#     login_id: !secret appletv_id
+#     credentials: !secret appletv_credentials
+#     name: AppleTV
 
 # Xiaomi Vacuum
 vacuum:

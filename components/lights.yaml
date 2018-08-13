@@ -1,0 +1,35 @@
+- platform: group
+  name: Lampen woonkamer
+  entities:
+    - light.bank
+    - light.bureaulamp_cris
+    - light.tv
+    - light.vloerlamp
+
+- platform: group
+  name: Lampen Mick
+  entities:
+    - light.hanglamp_mick
+    - light.bureaulamp_mick
+
+- platform: group
+  name: Lampen Cris
+  entities:
+    - light.hanglamp_cristian
+    - light.vloerlamp_cris
+
+- platform: group
+  name: Lampen keuken
+  entities:
+    - light.aanrecht
+    - light.trolley
+    - light.eettafel
+    - light.vitrine
+
+- platform: group
+  name: Lampen gang
+  entities:
+    - light.spiegel
+    - light.deur
+    - light.gang
+
