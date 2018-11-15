@@ -1,0 +1,4 @@
+- platform: ovapi
+  locations:
+    - stoparea: 09548
+      name: Kraaiennest

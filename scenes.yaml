@@ -46,7 +46,7 @@
 - name: Sexy Time (Mick)
   entities:
     light.bureaulamp_mick:
-      state: on
+      state: off
       color_temp: 454
       brightness: 10
     light.hanglamp_mick:

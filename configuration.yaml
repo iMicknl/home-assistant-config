@@ -9,8 +9,17 @@ homeassistant:
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
 
+  auth_providers:
+   - type: homeassistant
+   
+  auth_mfa_modules:
+    - type: totp
+
 # Enables configuration UI
 config:
+
+# Enable cloud component (for Alexa)
+cloud:
 
 # Enable ZWave
 zwave:
@@ -26,6 +35,14 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
   use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - ::1
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.0.0/24
+    - fd00::/8
 
 # Checks for available updates
 updater:
@@ -97,7 +114,7 @@ device_tracker:
     interval_seconds: 10
 
 # Apple TV
-apple_tv:
+# apple_tv:
 #   - host: !secret appletv_host
 #     login_id: !secret appletv_id
 #     credentials: !secret appletv_credentials

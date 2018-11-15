@@ -1,0 +1,303 @@
+title: MC HomeControl
+
+# Include external resources
+resources:
+  - url: /local/button-card.js
+    type: module
+  - url: /local/ovapi-card.js?v=1340
+    type: module
+
+background: RGB(183, 205, 222)
+
+views:
+    # View tab title.
+  - title: Overzicht
+    id: overview
+
+    # The cards to show on this view.
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Aanwezigheid
+            entities:
+              - device_tracker.iphone_mick
+              - device_tracker.iphone_cristian
+              - binary_sensor.multisensor_sensor
+              - binary_sensor.multisensor2_sensor
+          - type: picture-entity
+            camera_image: camera.voordeur
+            entity: binary_sensor.doorsensor_sensor
+
+          - type: "custom:ovapi-card"
+            entity: sensor.kraaiennest
+
+      - type: glance
+        title: Meterstanden
+        column_width: calc(100% / 4)
+        entities:
+          - entity: sensor.power_consumption
+            name: Vandaag
+          - entity: sensor.power_tariff
+            name: Tarief             
+          - entity: sensor.power_consumption_normal
+            name: Overdag         
+          - entity: sensor.power_consumption_low
+            name: Nacht
+
+      - type: entities
+        title: Pakketjes
+        entities:
+          - sensor.mick
+          - sensor.cristian
+
+      - type: entities
+        title: Verlichting
+        entities:
+          - group.lampen_gang
+          - group.lampen_keuken
+          - group.lampen_woonkamer
+
+      - type: glance
+        title: Temperatuur
+        entities:
+          - sensor.multisensor_temperature
+          - sensor.multisensor2_temperature
+          - sensor.flower_1_temperature
+          - sensor.flower_2_temperature
+          - sensor.flower_3_temperature
+
+      - type: media-control
+        entity: media_player.woonkamer_multimedia
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Plantjes
+            entities:
+              - plant.aronskelk_spathipylium
+              - plant.calathea
+              - plant.goudpalm_chrysalidocarpus_lutescens
+
+      # - type: weather-forecast
+      #   entity: weather.br_unknown_station
+
+  - id: corridor
+    title: Gang
+    cards:
+      - type: entities
+        title: Status
+        entities:
+          - alarm_control_panel.alarm
+          - binary_sensor.doorsensor_sensor
+
+      - type: entities
+        title: Verlichting
+        entities:
+          - light.spiegel
+          - light.deur
+          - light.gang
+          
+      - type: picture-glance
+        camera_image: camera.voordeur
+        entities:
+          - group.lampen_gang
+
+      - type: glance
+        show_name: false
+        entities:
+          - sensor.multisensor_temperature
+          - sensor.multisensor_ultraviolet
+          - sensor.multisensor_relative_humidity
+          - sensor.multisensor_luminance
+          - binary_sensor.doorsensor_sensor
+          
+      # - type: markdown
+      #   title: Lovelace
+      #   content: >
+      #     Welcome to your **Lovelace UI**.
+
+  - id: living_room
+    title: Woonkamer
+    cards:   
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            icon: mdi:robot-vacuum
+            action: service
+            service:
+              domain: vacuum
+              action: start_pause
+              data:
+                entity_id: vacuum.mc_vacuum
+
+          - type: "custom:button-card"
+            icon: mdi:broom
+            action: service
+            service:
+              domain: vacuum
+              action: clean_spot
+              data:
+                entity_id: vacuum.mc_vacuum
+
+          - type: "custom:button-card"
+            icon: mdi:netflix
+            action: service
+            service:
+              domain: script
+              action: netflix
+
+          - type: "custom:button-card"
+            icon: mdi:lightbulb-on
+            entity: light.woonkamer
+
+      - type: vertical-stack
+        cards:
+
+          - type: entities
+            title: Status
+            entities:
+              - entity: vacuum.mc_vacuum
+                name: Stofzuiger
+              - group.all_plants
+              - media_player.woonkamer_multimedia
+              - binary_sensor.multisensor2_sensor   
+              - type: divider
+              - scene.netflix
+              - scene.netflix__chill
+
+          - type: media-control
+            entity: media_player.woonkamer_multimedia
+
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Verlichting
+            entities:
+              - light.bank
+              - light.bureaulamp_cris
+              - light.tv
+              - light.vloerlamp
+
+          - type: entities
+            title: Keuken
+            entities:
+              - light.aanrecht
+              - light.trolley
+              - light.eettafel
+              - light.vitrine
+
+          - type: glance
+            column_width: calc(100% / 4)
+            entities:
+              - sensor.multisensor2_temperature
+              - sensor.flower_1_temperature
+              - sensor.flower_2_temperature
+              - sensor.flower_3_temperature
+
+      - type: vertical-stack
+        cards:
+          - type: plant-status
+            entity: plant.aronskelk_spathipylium
+          - type: plant-status
+            entity: plant.calathea
+          - type: plant-status
+            entity: plant.goudpalm_chrysalidocarpus_lutescens
+
+  - id: mick
+    title: Mick
+    cards:
+      - type: horizontal-stack
+        cards:
+            - type: "custom:button-card"
+              icon: mdi:lightbulb-on
+              entity: light.lampen_mick
+            - type: "custom:button-card"
+              icon: mdi:heart
+              entity: scene.sexy_time_mick
+            - type: "custom:button-card"
+              icon: mdi:ceiling-light
+              entity: light.hanglamp_mick
+            - type: "custom:button-card"
+              icon: mdi:lamp
+              entity: light.bureaulamp_mick
+
+      - type: entities
+        entities:
+          - device_tracker.iphone_mick
+          - entity: scene.sexy_time_mick
+            name: Time to relax
+          - entity: scene.sexy_time_mick
+            name: Work, work, work
+          - entity: scene.sexy_time_mick
+            name: Sexy Time
+
+      - type: entities
+        title: Verlichting
+        entities:
+          - light.hanglamp_mick
+          - light.bureaulamp_mick
+
+      - type: entities
+        entities:
+          - sensor.microsoft
+          - sensor.bitcoin_balance
+
+  - id: cristian
+    title: Cristian
+
+    background: pink
+
+    cards:          
+      - type: entities
+        entities:
+          - device_tracker.iphone_cristian
+          - scene.sexy_time_cris
+
+      - type: entities
+        title: Verlichting
+        entities:
+          - light.hanglamp_cristian
+          - light.bureaulamp_cris
+          - light.vloerlamp_cris
+
+  - icon: mdi:chart-line
+    title: History
+    cards:
+      - type: history-graph
+        title: Aanwezigheid
+        entities:
+          - device_tracker.iphone_mick
+          - device_tracker.iphone_cristian
+        hours_to_show: 192
+        refresh: 300
+
+      - type: history-graph
+        title: Temperatuur
+        entities:
+          - sensor.multisensor_temperature
+          - sensor.multisensor2_temperature
+          - sensor.flower_1_temperature
+          - sensor.flower_2_temperature
+          - sensor.flower_3_temperature
+        hours_to_show: 72
+        refresh: 300
+
+      - type: history-graph
+        title: Plantjes
+        entities:
+          - sensor.flower_1_moisture
+          - sensor.flower_2_moisture
+          - sensor.flower_3_moisture
+          - sensor.flower_1_conductivity
+          - sensor.flower_2_conductivity
+          - sensor.flower_3_conductivity
+        hours_to_show: 72
+        refresh: 300
+
+      - type: history-graph
+        title: Energieverbruik
+        entities:
+          - sensor.power_consumption
+        hours_to_show: 12
+        refresh: 300

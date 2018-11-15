@@ -33,3 +33,8 @@
     - light.deur
     - light.gang
 
+- platform: group
+  name: Lampen keuken en woonkamer
+  entities:
+    - light.keuken
+    - light.woonkamer
