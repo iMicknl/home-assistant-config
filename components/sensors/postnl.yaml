@@ -1,0 +1,11 @@
+- platform: postnl
+  name: Mick
+  username: !secret postnl_mick_email
+  password: !secret postnl_mick_pass
+  update_interval: 5
+  
+- platform: postnl
+  name: Cristian
+  username: !secret postnl_cris_email
+  password: !secret postnl_cris_pass
+  update_interval: 5
