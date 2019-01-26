@@ -21,7 +21,7 @@ sensor.power_tariff:
 ## Scene Icons
 scene.netflix:
   icon: mdi:netflix
-scene.netflix__chill:
+scene.netflix_chill:
   icon: mdi:netflix
 scene.sexy_time_mick:
   icon: mdi:heart

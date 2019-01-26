@@ -18,6 +18,10 @@ homeassistant:
 # Enables configuration UI
 config:
 
+# Lovelace
+lovelace:
+  mode: yaml
+
 # Enable cloud component (for Alexa)
 cloud:
 
@@ -41,6 +45,7 @@ http:
   trusted_networks:
     - 127.0.0.1
     - ::1
+    - 192.168.1.1
     - 192.168.0.0/24
     - fd00::/8
 
@@ -106,11 +111,13 @@ media_player: !include components/mediaplayer.yaml
 plant: !include components/plants.yaml
   
 # Asus WRT
-device_tracker:
-  - platform: asuswrt
+asuswrt:
     host: !secret router_host
     username: !secret router_user
     password: !secret router_password
+
+device_tracker:
+  - platform: asuswrt
     interval_seconds: 10
 
 # Apple TV

@@ -2,7 +2,7 @@ title: MC HomeControl
 
 # Include external resources
 resources:
-  - url: /local/button-card.js
+  - url: /local/button-card.js?v=1
     type: module
   - url: /local/ovapi-card.js?v=1340
     type: module
@@ -164,7 +164,7 @@ views:
               - binary_sensor.multisensor2_sensor   
               - type: divider
               - scene.netflix
-              - scene.netflix__chill
+              - scene.netflix_chill
 
           - type: media-control
             entity: media_player.woonkamer_multimedia

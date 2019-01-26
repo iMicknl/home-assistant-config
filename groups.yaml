@@ -48,7 +48,7 @@ living_room:
     - sensor.flower_3_temperature
     - group.all_plants
     - scene.netflix
-    - scene.netflix__chill
+    - scene.netflix_chill
     - sensor.multisensor2_temperature
     - sensor.multisensor2_luminance
     - binary_sensor.multisensor2_sensor
